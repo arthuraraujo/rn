@@ -23,6 +23,8 @@ def isNewArchitectureEnabled() {
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 if (isNewArchitectureEnabled()) {
   apply plugin: 'com.facebook.react'
@@ -49,6 +51,12 @@ android {
       minifyEnabled false
     }
   }
+  dataBinding {
+    enabled = true
+  }
+
+
+
 
   lintOptions {
     disable 'GradleCompatible'
@@ -138,6 +146,36 @@ dependencies {
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
   // From node_modules
 
+
+
+      // necessaries dependencies
+    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.0'
+    implementation 'androidx.biometric:biometric:1.1.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.7.10"
+    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'com.google.android.gms:play-services-location:20.0.0'
+
+    // koin
+    implementation 'io.insert-koin:koin-android:3.2.0'
+
+    //retrofit - gson - interceptor
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.10.0'
+
+    implementation 'com.esotericsoftware:kryo:5.3.0'
+    implementation 'org.bouncycastle:bcprov-ext-jdk15to18:1.70'
+
+
+
+
+
   implementation fileTree(dir: "libs", include: ["*.aar"])
 
 
@@ -149,6 +187,8 @@ dependencies {
   implementation files('libs/sdk_dsapp_client_android:4.28.0.536')
   implementation files('libs/sdk_device_binding_android:5.0.2.800')
   implementation files('libs/sdk_secure_storage_android:4.28.0.862')
+
+  kapt 'com.android.databinding:compiler:3.1.4'
 }
 
 if (isNewArchitectureEnabled()) {

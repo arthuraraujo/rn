@@ -4,13 +4,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import com.reactnativeonespanorchestration.databinding.ActivityActivationBinding
+// import com.reactnativeonespanorchestration.databinding.ActivityActivationBinding
 import com.reactnativeonespanorchestration.utils.Status
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ActivationActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityActivationBinding
+    // private lateinit var binding: ActivityActivationBinding
     private val viewModel by viewModel<ActivationViewModel>()
 
     companion object {
