@@ -11,6 +11,9 @@ buildscript {
     classpath 'com.android.tools.build:gradle:3.5.3'
     // noinspection DifferentKotlinGradleVersion
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+
+
   }
 }
 
@@ -130,10 +133,22 @@ repositories {
 def kotlin_version = getExtOrDefault('kotlinVersion')
 
 dependencies {
-    //noinspection GradleDynamicVersion
+  //noinspection GradleDynamicVersion
   implementation "com.facebook.react:react-native:+"
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-// From node_modules
+  // From node_modules
+
+  implementation fileTree(dir: "libs", include: ["*.aar"])
+
+
+  implementation files('libs/sdk_orchestration_android:5.5.1.881')
+  implementation files('libs/sdk_digipass_android:4.30.0.614')
+  implementation files('libs/sdk_utilities_android:4.27.2.881')
+  implementation files('libs/sdk_cddc_android:4.25.2.654')
+  implementation files('libs/sdk_biometric_sensor_android:4.25.1.656')
+  implementation files('libs/sdk_dsapp_client_android:4.28.0.536')
+  implementation files('libs/sdk_device_binding_android:5.0.2.800')
+  implementation files('libs/sdk_secure_storage_android:4.28.0.862')
 }
 
 if (isNewArchitectureEnabled()) {
